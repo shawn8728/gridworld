@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Square Generator</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+	<h1>Grid World</h1>
+	<form method="POST" action="/square">
+		<label for="number">Enter the grid size between 3 to 10:</label>
+		<input type="number" name="size" id="size" max="10" min="3" required>
+		<input type="submit" value="Generate Grid">
+	</form>
+</body>
+
+</html>

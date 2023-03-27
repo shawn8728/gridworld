@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Grid World</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+  <h1>Grid World</h1>
+
+  <!-- Select the type of cell -->
+  <div class="select_section">
+    <p>Select the type of cell and click on a cell to set it.</p>
+    <p>
+      <input type="radio" name="cellType" id="start" /> Start
+      <input type="radio" name="cellType" id="blocked" /> Blocked
+      <input type="radio" name="cellType" id="end" /> End
+    </p>
+  </div>
+
+  <!-- The Grid -->
+  <div class="table">
+    <table>
+      {% for row in square_list %}
+      <tr>
+        {% for item in row %}
+        <td></td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <!-- Q-Learning attributes -->
+  <div class="attributes">
+    <form>
+      <div class="episodes">
+        <label>Number of episodes: </label>
+        <input type="number" name="episodes" id="episodes" placeholder="default set to 1000" />
+      </div>
+      <div class="alpha">
+        <label>Aplha value: </label>
+        <input type="number" name="alpha" id="alpha" placeholder="default set to 0.1" />
+      </div>
+      <div class="gamma">
+        <label>Gamma value: </label>
+        <input type="number" name="gamma" id="gamma" placeholder="default set to 0.9" />
+      </div>
+      <div class="epsilon">
+        <label>Number of epsilon:</label>
+        <input type="number" name="epsilon" id="epsilon" placeholder="default set to 1.0" />
+      </div>
+    </form>
+
+    <!-- function buttons -->
+    <div class="functions">
+      <button id="reset">Reset</button>
+      <button id="solve">Solve</button>
+    </div>
+</body>
+
+</html>
