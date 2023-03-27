@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from QLearning import q_learning
 import sys
 
@@ -37,14 +37,6 @@ def solve():
     start = tuple(start)
     end = tuple(end)
     blocked = [tuple(block) for block in blocked]
-
-    # Update the Q-values using the Q-learning algorithm
-    # alpha = 0.1  # Learning rate
-    # gamma = 0.9  # Discount factor
-    # epsilon = 1.0  # Exploration probability
-    # num_episodes = 1000  # Number of episodes to run the algorithm
-
-    # print(gamma, file = sys.stderr)
 
     # Run the Q-learning algorithm
     path = q_learning(size, alpha, gamma, epsilon, num_episodes, start, end, blocked)
