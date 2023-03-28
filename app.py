@@ -40,6 +40,9 @@ def solve():
 
     # Run the Q-learning algorithm
     path = q_learning(size, alpha, gamma, epsilon, num_episodes, start, end, blocked)
+    path.pop(0)
+    path.pop(-1)
+    
     return path
     
 
